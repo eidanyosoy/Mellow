@@ -1,4 +1,4 @@
-FROM node:16.13.2-alpine3.15
+FROM node:fermium-buster
 
 LABEL maintainer="void* <voidp@protonmail.com>"
 
@@ -6,23 +6,7 @@ USER root
 
 ENV APP /usr/src/app
 
-RUN npm install -g sqlite3@4.2.0
-
 RUN npm install -g pm2@5.1.2
-
-RUN npm install -g uuid@8.3.2
-
-RUN npm install -g python3
-
-RUN npm install -g node-pre-gyp@mapbox
-
-RUN npm install -g request
-
-RUN npm install -g node-fetch@2.6.5
-
-RUN npm install -g discord.js@13.2.0
-
-
 
 COPY package.json /tmp/package.json
 
