@@ -6,8 +6,6 @@ USER root
 
 ENV APP /usr/src/app
 
-RUN npm install npm
-
 RUN npm install pm2 -g
 
 RUN npm install uuid
