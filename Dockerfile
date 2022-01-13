@@ -10,7 +10,7 @@ RUN npm install -g npm@8.3.1
 
 RUN npm install -g node@16.9.0 --force
 
-RUN npm install -g pm2@5.1.2 
+RUN npm install -g pm2@5.1.2
 
 RUN npm install -g sqlite3@4.2.0
 
