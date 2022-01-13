@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node:v16.13.2
 
 LABEL maintainer="void* <voidp@protonmail.com>"
 
