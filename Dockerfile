@@ -6,17 +6,19 @@ USER root
 
 ENV APP /usr/src/app
 
-RUN npm install pm2 -g
+RUN npm install -g pm2@5.1.2
 
-RUN npm install uuid
+RUN npm install -g uuid@8.3.2
 
-RUN npm install mapbox/node-pre-gyp
+RUN npm install -g npm@8.3.1
 
-RUN npm install request
+RUN npm install -g @mapbox/node-pre-gyp@1.0.5
 
-RUN npm install node-fetch
+RUN npm install -g request
 
-RUN npm install discord.js
+RUN npm install -g node-fetch@2.6.5
+
+RUN npm install -g discord.js@13.2.0
 
 
 
