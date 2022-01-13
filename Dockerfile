@@ -6,8 +6,6 @@ USER root
 
 ENV APP /usr/src/app
 
-RUN npm install -g npm@8.3.1
-
 RUN npm install -g node@16.9.0 --force
 
 RUN npm install -g pm2@5.1.2
@@ -17,8 +15,6 @@ RUN npm install -g sqlite3@4.2.0
 RUN npm install -g uuid@8.3.2
 
 RUN npm install -g python3
-
-RUN npm install -g npm@8.3.1
 
 RUN npm install -g node-pre-gyp@mapbox
 
