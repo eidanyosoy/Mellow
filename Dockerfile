@@ -1,4 +1,4 @@
-nFROM node:fermium-buster
+FROM node:fermium-buster
 
 LABEL maintainer="eidanyosoy* <eidanyosoy@gmail.com>"
 
