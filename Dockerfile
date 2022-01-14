@@ -1,6 +1,6 @@
-FROM node:fermium-buster
+nFROM node:fermium-buster
 
-LABEL maintainer="void* <voidp@protonmail.com>"
+LABEL maintainer="eidanyosoy* <eidanyosoy@gmail.com>"
 
 USER root
 
