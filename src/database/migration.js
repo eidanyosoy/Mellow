@@ -1,44 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 const Promise = require('bluebird');
-const sqlite = require('sqlite');
 const bcrypt = require('bcryptjs');
 const newSettings = require('./settings_format.json');
-
 const BCRYPT_PATTERN = /^\$2[ayb]\$.{56}$/
-
-const migrateSQLITE = function() {
-    return new Promise(async (resolve, reject) => {
-        try {
-            const databasePath = path.join(__dirname, '..', '..', 'data', 'WebSettings.sqlite3');
-            const newSettingsPath = path.join(__dirname, '..', '..', 'data', 'settings.json');
-            if (fs.existsSync(databasePath) ) {
-                console.log("SQLite Settings found! Migrating settings to new settings...");
-                const db = await sqlite.open(databasePath, { Promise });
-                for (const table of ['general', 'bot', 'ombi', 'tautulli', 'sonarr', 'radarr']) {
-                    const result =  await db.get('SELECT * FROM ' + table + ' WHERE id=1');
-                    for (const key in result) {
-                        if (key !== 'id' && newSettings[table].hasOwnProperty(key))
-                            newSettings[table][key] = result[key];
-                    }
-                }
-                await db.close();
-                fs.writeFileSync(newSettingsPath, JSON.stringify(newSettings));
-                fs.unlinkSync(databasePath, (err) => {
-                    if (err) reject(err);
-                });
-            }
-            else {
-                console.log('No SQLite settings found! Skipping...');
-            }
-            resolve();
-        }
-        catch (err) {
-            reject(err);
-        }
-    });
-}
-
 const migrateJSON = function() {
     return new Promise(async (resolve, reject) => {
         try {
@@ -106,8 +71,6 @@ const migrateJSON = function() {
 
 const migrateALL = function() {
     return new Promise(async (resolve, reject) => {
-        const sqlErr = await migrateSQLITE();
-        if (sqlErr) reject(sqlErr);
         const jsonErr = await migrateJSON();
         if (jsonErr) reject(jsonErr);
         resolve();
@@ -115,7 +78,6 @@ const migrateALL = function() {
 }
 
 module.exports = {
-    migrateSQLITE,
     migrateJSON,
     migrateALL
 }
