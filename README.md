@@ -1,4 +1,4 @@
-# Mellow [![Paypal](https://img.shields.io/badge/PayPal-Donate-Green.svg?logo=Paypal&style=flat-square)](https://www.paypal.com/donate?hosted_button_id=CQ6VM34ZC68HE) [![Docker](https://img.shields.io/badge/Docker-Hub-lightblue.svg?logo=docker&style=flat-square)](https://cloud.docker.com/u/voidp/repository/docker/voidp/mellow) [![Run on Repl.it](https://repl.it/badge/github/v0idp/Mellow)](https://repl.it/github/v0idp/Mellow)
+# Mellow 
 
 <p align="center">
    <img src="src/resources/logo.png" width="256" height="256" link="https://discord.gg/zx2BWp2">
@@ -40,17 +40,7 @@ be redirect to a new page where you can select the server you want to invite the
 * Mention @everyone
 * Add Reactions
 
-## Installation
 
-Go into the Mellow root folder and type
-```sh
-npm install
-```
-
-To start the bot just simply type
-```sh
-npm start
-```
 
 ## Configuration
 
@@ -69,14 +59,8 @@ docker run -d --restart=unless-stopped --name mellow \
    -e JWT_SECRET=secret_password \
    -e PORT=5060 \
    -p 5060:5060 \
-   voidp/mellow
+   eidanyosoy/mellow
 ```
 * if you want persistent data create a folder in ``/opt/appdata/mellow/`` or use docker compose. A yaml file is provided for this purpose.
 
-## Contributing
 
-1. Fork it (<https://github.com/v0idp/Mellow/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
